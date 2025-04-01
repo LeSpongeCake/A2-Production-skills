@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SettingsScript : MonoBehaviour
 {
+    
     [SerializeField] Slider volumeSlider;
     public void OnToggleButton()
     {
