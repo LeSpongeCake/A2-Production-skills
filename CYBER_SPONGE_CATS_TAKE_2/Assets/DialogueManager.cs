@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     private int nPCindex;
 
-    private void Start()
+    void OnCollisionEnter(Collision collision)
     {
         StartDialogue();
     }
