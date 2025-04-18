@@ -11,6 +11,9 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 # If you have a nested Unity project folder, you can ignore its caches too:
+# ignore the old “My project” Unity cache (including PackageCache)
+My project/Library/
+My project/Library/PackageCache/
 CYBER_SPONGE_CATS_TAKE_2/Library/
 CYBER_SPONGE_CATS_TAKE_2/Library/PackageCache/
 "My project"/Library/
