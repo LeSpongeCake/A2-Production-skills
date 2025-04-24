@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Unity-generated folders
+Library/
+Logs/
+Temp/
+Obj/
+Build/
+Builds/
+UserSettings/
+
+# IDE and debug files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Cache and metadata
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+*.opendb.meta
