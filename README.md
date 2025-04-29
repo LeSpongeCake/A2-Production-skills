@@ -1,7 +1,2 @@
-Hey there folks. This should be called README and be the first thing you can see
-
-
-lets see if you can see this haha
-
-
-im doing this from the sponge branch 
+This is the new main branch. NEVER push to this branch, we will only push to here from dev branch. 
+almost always pull from the dev branch too 
