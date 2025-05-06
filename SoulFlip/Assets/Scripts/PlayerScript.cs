@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
         currentPos = rb2D.position;
     }
 
@@ -62,9 +63,8 @@ public class PlayerScript : MonoBehaviour
         Vector2 start = transform.position;
         Vector2 end = start + direction;
 
-        Debug.Log("Start Position: " + start);
-        Debug.Log("End Position: " + end);
-        Debug.Log("Direction: " + direction);
+        Debug.Log("Rigidbody2D: " + rb2D);
+        Debug.Log("BoxCollider2D: " + boxCollider);
 
         boxCollider.enabled = false;
         RaycastHit2D hit = Physics2D.Linecast(start, end, blockingLayer);
