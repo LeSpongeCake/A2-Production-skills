@@ -17,6 +17,10 @@ public class PlayerScript : MonoBehaviour
     private Vector2 dir_Down = new Vector2(0, -1);
     private Vector2 dir_Left = new Vector2(-1, 0);
     private Vector2 dir_Right = new Vector2(1, 0);
+    private Vector2 dir_UpRight = new Vector2(1, 1);
+    private Vector2 dir_UpLeft = new Vector2(-1, 1);
+    private Vector2 dir_DownRight = new Vector2(1, -1);
+    private Vector2 dir_DownLeft = new Vector2(-1, -1);
     private Vector2 currentPos;
     private BoxCollider2D boxCollider;
 
@@ -27,23 +31,67 @@ public class PlayerScript : MonoBehaviour
         currentPos = rb2D.position;
     }
 
-    void Update()
+    void Update() // this is messy as hell (but it works)
     {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                moveSequence.Add("upright");
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                moveSequence.Add("downright");
+            }
+            else
+            {
+                moveSequence.Add("right");
+            }
+        }
         if(Input.GetKeyDown(KeyCode.W))
         {
-            moveSequence.Add("up");
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveSequence.Add("upright");
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                moveSequence.Add("upleft");
+            }
+            else
+            {
+                moveSequence.Add("up");
+            }
         }
         if(Input.GetKeyDown(KeyCode.A))
         {
-            moveSequence.Add("left");
+            if (Input.GetKey(KeyCode.W))
+            {
+                moveSequence.Add("upleft");
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                moveSequence.Add("downleft");
+            }
+            else
+            {
+                moveSequence.Add("left");
+            }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            moveSequence.Add("down");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            moveSequence.Add("right");
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveSequence.Add("downright");
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                moveSequence.Add("downleft");
+            }
+            else
+            {
+                moveSequence.Add("down");
+            }
         }
         FixedUpdate();
     }
@@ -99,6 +147,18 @@ public class PlayerScript : MonoBehaviour
                 break;
             case "right":
                 direction = dir_Right;
+                break;
+            case "upright":
+                direction = dir_UpRight;
+                break;
+            case "downright":
+                direction = dir_DownRight;
+                break;
+            case "upleft":
+                direction = dir_UpLeft;
+                break;
+            case "downleft":
+                direction = dir_DownLeft;
                 break;
         }
     }

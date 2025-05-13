@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9927a676198a1e4d82f45e3e54514ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 40
+  moveSpeed: 70
   moving: 0
   rb2D: {fileID: 47858613}
   blockingLayer:
