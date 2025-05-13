@@ -6,6 +6,8 @@ public class PlayerScript : MonoBehaviour
 {
 
     public int moveSpeed;
+    public float moveDistance;
+    public float diagonalDistance;
     public bool moving;
     List<string> moveSequence = new List<string>();
     public Rigidbody2D rb2D;
@@ -13,14 +15,14 @@ public class PlayerScript : MonoBehaviour
 
     private Vector2 direction;
 
-    private Vector2 dir_Up = new Vector2(0, 1);
-    private Vector2 dir_Down = new Vector2(0, -1);
-    private Vector2 dir_Left = new Vector2(-1, 0);
-    private Vector2 dir_Right = new Vector2(1, 0);
-    private Vector2 dir_UpRight = new Vector2(1, 1);
-    private Vector2 dir_UpLeft = new Vector2(-1, 1);
-    private Vector2 dir_DownRight = new Vector2(1, -1);
-    private Vector2 dir_DownLeft = new Vector2(-1, -1);
+    private Vector2 dir_Up;
+    private Vector2 dir_Down;
+    private Vector2 dir_Left;
+    private Vector2 dir_Right;
+    private Vector2 dir_UpRight;
+    private Vector2 dir_UpLeft;
+    private Vector2 dir_DownRight;
+    private Vector2 dir_DownLeft;
     private Vector2 currentPos;
     private BoxCollider2D boxCollider;
 
@@ -29,6 +31,15 @@ public class PlayerScript : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         currentPos = rb2D.position;
+        dir_Up = new Vector2(0, moveDistance);
+        dir_Down = new Vector2(0, -moveDistance);
+        dir_Left = new Vector2(-moveDistance, 0);
+        dir_Right = new Vector2(moveDistance, 0);
+        dir_UpRight = new Vector2(diagonalDistance, diagonalDistance);
+        dir_UpLeft = new Vector2(-diagonalDistance, diagonalDistance);
+        dir_DownRight = new Vector2(diagonalDistance, -diagonalDistance);
+        dir_DownLeft = new Vector2(-diagonalDistance, -diagonalDistance);
+
     }
 
     void Update() // this is messy as hell (but it works)
