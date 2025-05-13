@@ -127,7 +127,7 @@ public class PlayerScript : MonoBehaviour
 
         boxCollider.enabled = false;
         RaycastHit2D hit = Physics2D.Linecast(start, end, blockingLayer);
-        boxCollider.enabled = true;
+        boxCollider.enabled = false;
 
         if (hit.transform == null)
         {
